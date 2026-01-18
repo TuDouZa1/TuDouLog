@@ -1,19 +1,53 @@
 <!doctype html>
-<html lang="cn">
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>土豆博客 - 文章详情</title>
+    <meta
+      name="description"
+      content="欢迎来到土豆仔的技术博客！这里分享编程经验、技术教程和开发心得。"
+    />
+    <meta
+      name="keywords"
+      content="技术博客, 编程, 开发, 教程, JavaScript, HTML, CSS, Java"
+    />
+    <meta name="author" content="土豆仔" />
+    <title>土豆博客 - 欢迎来到土豆博客</title>
     <link rel="stylesheet" href="../css/layout.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"
+      data-autohighlight="false"
+    ></script>
   </head>
   <body>
     <div class="container">
       <div class="box">
         <h1 class="title">欢迎来到土豆博客</h1>
         <hr />
-        <p>我是土豆仔，这是我的博客</p>
-        <img src="../images/image.png" alt="" srcset="" />
+        <div class="content">
+          <p>你好！欢迎来到我的个人博客。</p>
+          <img src="../images/image.png" alt="土豆仔" />
+          <h2>代码示例</h2>
+          <pre><code class="language-java">// 计算1到99之间奇数的和
+public class OddSum {
+    public static void main(String[] args) {
+        int sum = 0;
+        for (int i = 1; i <= 99; i++) {
+            if (i % 2 == 1) {
+                sum += i;
+            }
+        }
+        System.out.println("奇数之和: " + sum);
+    }
+}</code></pre>
+        </div>
       </div>
     </div>
+
+    <script src="../js/js.js"></script>
   </body>
 </html>
