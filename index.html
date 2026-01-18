@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>土豆博客</title>
+    <link rel="stylesheet" href="./css/layout.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <h1 class="title">土豆博客</h1>
+        <hr />
+        <p>我是土豆仔，这是我的博客</p>
+        <p>
+          项目地址：<a href="">dasdadada</a><br />
+          GitHub仓库地址：<a href="">fdasfassfsa</a><br />
+          Gitee仓库地址：<a href="">fdasfassfsa</a><br />
+        </p>
+        <h1 class="title">文章列表</h1>
+        <hr />
+        <div class="article-list">
+          <div class="article-empty">暂无文章</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const listContainer = document.querySelector(".article-list");
+
+      fetch("./articleList.json")
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.length > 0) {
+            const html = data
+              .map((item) => {
+                return `
+        <a href="./pages/${item.filename}" class="article-item" target="_blank">
+          <h2 class="article-title">${item.title}</h2>
+          <div class="article-time">${item.time}</div>
+        </a>
+      `;
+              })
+              .join("");
+
+            listContainer.innerHTML = html;
+          }
+        })
+        .catch((error) => console.error("加载文章列表失败:", error));
+    </script>
+  </body>
+</html>

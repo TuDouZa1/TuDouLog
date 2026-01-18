@@ -1,0 +1,40 @@
+name: Auto Build Article List
+
+# 触发条件：当 main 分支有 push 时
+on:
+  push:
+    branches:
+      - main
+
+# 定义权限，允许 Action 修改仓库代码
+permissions:
+  contents: write
+
+jobs:
+  build_and_commit:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. 检出代码
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          # 必须设置为 true，否则后续无法提交
+          fetch-depth: 0
+
+      # 2. 设置 Node.js 环境
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20" # 推荐使用 LTS 版本
+
+      # 3. 运行构建脚本
+      - name: Run build script
+        run: node build.js
+
+      # 4. 自动提交更改
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto update articleList.json"
+          # 只提交 articleList.json 文件
+          file_pattern: articleList.json
