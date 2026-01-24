@@ -25,7 +25,7 @@
 
 1. 在 `pages/` 目录下创建新的 HTML 文件
 2. 运行 `node build.js` 更新文章列表
-3. 部署到 GitHub Pages
+3. 提交更改并推送到 GitHub 仓库
 
 ### 本地预览
 
@@ -43,4 +43,6 @@ node build.js
 
 ## 部署
 
-推送到 GitHub 仓库后，通过 GitHub Pages 服务自动部署。
+1. 在本地运行 `node build.js` 生成文章列表
+2. 推送到 GitHub 仓库
+3. 通过 GitHub Pages 服务自动部署
