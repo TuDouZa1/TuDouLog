@@ -108,10 +108,19 @@ pre code {
 .content {
   padding: 0 2rem;
   line-height: 1.6;
+  padding-bottom: 2rem;
 }
 .content img {
   width: 100%;
   height: auto;
+}
+.info {
+  display: block;
+  background: #eee;
+  padding: 1rem 1.25rem;
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
 }
 
 @media screen and (max-width: 768px) {

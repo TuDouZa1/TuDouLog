@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="欢迎来到土豆仔的技术博客！这里分享编程经验、技术教程和开发心得。"
+    />
+    <meta
+      name="keywords"
+      content="技术博客, 编程, 开发, 教程, JavaScript, HTML, CSS, Java"
+    />
+    <meta name="author" content="土豆仔" />
+    <title>土豆博客 - 文章详情</title>
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"
+      data-autohighlight="false"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <h1 class="title"><span id="fileName"></span></h1>
+        <hr />
+        <div class="content">
+          <h2>Vim 模式的切换</h2>
+          <ol>
+            <h3><li>Normal -> Insert</li></h3>
+            <ul>
+              <li>i：在光标前插入</li>
+              <li>I：在行首插入</li>
+              <li>a：在光标后插入</li>
+              <li>A：在行尾插入</li>
+              <li>o：在光标下方插入新行</li>
+              <li>O：在光标上方插入新行</li>
+            </ul>
+            <h3><li>Normal -> Visual</li></h3>
+            <ul>
+              <li>v：进入字符模式</li>
+              <li>V：进入行模式</li>
+              <li>Ctrl + v：进入块模式</li>
+            </ul>
+            <h3><li>Normal -> 命令模式</li></h3>
+            <ul>
+              <li>:：进入命令模式</li>
+            </ul>
+          </ol>
+          <h2>光标移动</h2>
+          <ol>
+            <h3><li>上下左右移动</li></h3>
+            <ul>
+              <li>h：左移</li>
+              <li>j：下移</li>
+              <li>k：上移</li>
+              <li>l：右移</li>
+            </ul>
+            <h3><li>按单词移动</li></h3>
+            <ul>
+              <li>w：跳到一个单词开头</li>
+              <li>b：跳到本单词或上个单词的开头</li>
+              <li>e：跳到本单词或下个单词的结尾</li>
+              <li>ge：跳到上一个单词结尾</li>
+            </ul>
+            <h3><li>按行移动</li></h3>
+            <ul>
+              <li>0：跳到行首</li>
+              <li>^：跳到行首开始第一个非空字符</li>
+              <li>$：跳到行尾</li>
+              <li>gg：跳到第一行</li>
+              <li>G：跳到最后一行</li>
+            </ul>
+            <h3><li>按字符移动</li></h3>
+            <ul>
+              <li>f{char}：光标跳到下一个{char}所在位置</li>
+              <li>F{char}：反向移动到上一个{char}所在位置</li>
+              <li>t{char}：光标跳到下一个{char}的前一个字符的位置</li>
+              <li>T{char}：光标反向移动到上一个{char}的后一个字符的位置</li>
+              <li>;：重复上一此字符查询操作</li>
+              <li>,：反向查找上一次的查找命令</li>
+            </ul>
+          </ol>
+
+          <div class="info">好吧，学到这里，我还是放弃了Vim模式😄</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/js.js"></script>
+  </body>
+</html>
