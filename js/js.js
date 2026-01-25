@@ -7,6 +7,8 @@ function showCurrentFileName() {
   const decodedFileName = decodeURIComponent(fileName).replace(".html", "");
   // 显示文件名
   document.getElementById("fileName").textContent = decodedFileName;
+  // 修改文件标题
+  document.title = decodedFileName;
 }
 
 document.querySelectorAll("pre code").forEach((block) => {
