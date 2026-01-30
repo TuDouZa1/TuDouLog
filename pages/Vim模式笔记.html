@@ -50,6 +50,14 @@
             <ul>
               <li>:：进入命令模式</li>
             </ul>
+            <h3><li>vscode 设置 jk 代替 esc</li></h3>
+            <pre><code lang="json">"vim.insertModeKeyBindings": [
+    {
+      // 在插入模式下，连续按下 j 和 k 将退出到普通模式
+      "before": ["j", "k"],
+      "after": ["<Esc>"],
+    },
+  ],</code></pre>
           </ol>
           <h2>光标移动</h2>
           <ol>
@@ -86,6 +94,18 @@
             </ul>
           </ol>
 
+          <h2>操作符</h2>
+          <ol>
+            <h3><li>基本的操作</li></h3>
+            <ul>
+              <li>d(delete)：删除</li>
+              <li>c(change)：修改（剪切并进入插入模式）</li>
+              <li>y(yank)：复制</li>
+              <li>v(visual)：选中并进入 Visual 模式</li>
+            </ul>
+          </ol>
+
+          <h2>动作</h2>
           <div class="info">好吧，学到这里，我还是放弃了Vim模式😄</div>
         </div>
       </div>

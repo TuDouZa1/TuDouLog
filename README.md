@@ -11,6 +11,7 @@
 - `articleList.json` - 自动生成的文章列表数据
 - `build.js` - 生成文章列表的构建脚本
 - `images/` - 图片资源目录
+- `template.html` - 博客文章模板HTML
 
 ## 功能特性
 

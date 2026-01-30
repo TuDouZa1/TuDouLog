@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="欢迎来到土豆仔的技术博客！这里分享编程经验、技术教程和开发心得。"
+    />
+    <meta
+      name="keywords"
+      content="技术博客, 编程, 开发, 教程, JavaScript, HTML, CSS, Java"
+    />
+    <meta name="author" content="土豆仔" />
+    <title>土豆博客 - 文章详情</title>
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"
+      data-autohighlight="false"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <h1 class="title"><span id="fileName"></span></h1>
+        <hr />
+        <div class="content">
+          <h2>安装插件</h2>
+          <p>Win/Linux: ctrl+shift+p, Mac: cmd+shift+p输入</p>
+          <pre><code>Install Package Control</code></pre>
+          <p>回车即可</p>
+          <h3>一些推荐插件</h3>
+          <ul>
+            <li>ChineseLocalizations</li>
+            <li>Emmet</li>
+            <li>
+              AutoFileName：在写 src=", href="
+              时，自动提示并补全当前目录下的文件名。
+            </li>
+            <li>CSS3：CSS语法高亮与补全</li>
+            <li>HTML-CSS-JS Prettify：代码格式化</li>
+            <li>Terminus：内部集成终端</li>
+            <li>BracketHighlighter：括号高亮增强</li>
+            <li>ColorHelper：颜色选择器</li>
+          </ul>
+          <h3>推荐配置JSON</h3>
+          <pre><code lang="json">{
+    // 保存时自动格式化（需先安装 HTML-CSS-JS Prettify）
+    "format_on_save": true,
+    // 显示相对行号，便于快速跳转
+    "line_numbers": true,
+    "relative_line_numbers": true,
+    // 高亮当前行
+    "highlight_line": true,
+    // 平滑滚动
+    "scroll_speed": 1.0,
+    "smooth_scrolling": true
+}</code></pre>
+          <h2>卸载插件</h2>
+          <p>Win/Linux: ctrl+shift+p, Mac: cmd+shift+p输入</p>
+          <pre><code>Remove Package</code></pre>
+          <p>
+            使用键盘上下键选择你想要卸载的插件（例如 Terminus），然后按 Enter
+            键。
+          </p>
+          <p>也可以打开插件文件夹手动删除</p>
+          <h2>本地服务器运行</h2>
+          <p>终端输入</p>
+          <pre><code lang="bash">npx serve // 需要nodejs</code></pre>
+          <pre><code lang="bash">python -m http.server // 需要python</code></pre>
+          <h2>配置通过subl .打开</h2>
+          <p>把sublime text安装路径配置在系统变量的path里即可</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/js.js"></script>
+  </body>
+</html>
