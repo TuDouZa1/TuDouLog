@@ -14,6 +14,98 @@
     <meta name="author" content="土豆仔" />
     <title>土豆博客</title>
     <link rel="stylesheet" href="./css/layout.css" />
+    <style>
+      .cool-title {
+        background: linear-gradient(
+          45deg,
+          #000,
+          #000,
+          #000,
+          #000,
+          #fff,
+          #000,
+          #000,
+          #000,
+          #000
+        );
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        animation: gradientFlow 5s linear infinite;
+      }
+      @keyframes gradientFlow {
+        0% {
+          background-position: 0% center;
+          box-shadow: none;
+        }
+        50% {
+          text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.6);
+        }
+        100% {
+          background-position: 200% center;
+        }
+      }
+      .article-list {
+        padding: 1rem 2rem 0;
+      }
+      .article-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        padding: 0.625rem 2rem;
+        border: 1px solid #eee;
+        /* border-radius: 0.625rem; */
+        background: #fff;
+        color: #333;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .article-item:hover {
+        border-color: #ddd;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        transform: translateY(-2px);
+      }
+      .article-title {
+        margin: 0;
+        padding: 0.625rem 0rem;
+        font-size: 1.125rem;
+        font-weight: 500;
+        flex: 1;
+        max-width: 80%;
+      }
+      .article-time {
+        padding: 0.625rem 0rem;
+        font-weight: bold;
+        font-size: 0.875rem;
+        color: #999;
+        white-space: nowrap;
+        margin-left: 1rem;
+      }
+      .article-empty {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #999;
+      }
+      @media screen and (max-width: 768px) {
+        .article-item {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .article-title {
+          max-width: 100%;
+        }
+        .article-time {
+          margin-left: 0;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="container">
@@ -44,6 +136,17 @@
         <div class="article-list">
           <div class="article-empty">暂无文章</div>
         </div>
+        <h1 class="title">废话</h1>
+        <hr />
+        <div class="article-list">
+          <div class="article-item">
+            <h2 class="article-title">
+              这里写一些自己看的废话，样式直接复用文章列表的了。
+            </h2>
+            <div class="article-time">2026年2月2日 14点48分</div>
+          </div>
+        </div>
+        <footer>- 你好，我是底部！ -</footer>
       </div>
     </div>
 
@@ -57,7 +160,7 @@
             const html = data
               .map((item) => {
                 return `
-        <a href="./pages/${item.filename}" class="article-item" target="_blank">
+        <a href="./pages/${item.filename}" class="article-item">
           <h2 class="article-title">${item.title}</h2>
           <div class="article-time">${item.time}</div>
         </a>

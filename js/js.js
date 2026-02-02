@@ -15,6 +15,28 @@ document.querySelectorAll("pre code").forEach((block) => {
   block.textContent = block.innerHTML;
 });
 
+// 自动插入代码头并识别语言
+document.querySelectorAll('pre code').forEach(code => {
+  const pre = code.parentElement;
+  const lang = code.className;
+  const header = document.createElement('div');
+  header.className = 'code-lang';
+  header.innerHTML = `
+    <span class="code-lang-name">${lang.charAt(0).toUpperCase() + lang.slice(1)}</span>
+    <button onclick="copyCode(this)">复制</button>
+  `;
+  pre.parentNode.insertBefore(header, pre);
+});
+
+// 复制代码
+function copyCode(btn) {
+  const code = btn.closest('.code-lang').nextElementSibling.querySelector('code');
+  navigator.clipboard.writeText(code.textContent).then(() => {
+    btn.textContent = '已复制';
+    setTimeout(() => btn.textContent = '复制', 1500);
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   // 在页面加载完成后执行
   hljs.highlightAll();
