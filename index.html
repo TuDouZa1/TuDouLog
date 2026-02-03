@@ -16,34 +16,45 @@
     <link rel="stylesheet" href="./css/layout.css" />
     <style>
       .cool-title {
+        cursor: pointer;
         background: linear-gradient(
           45deg,
-          #000,
-          #000,
-          #000,
-          #000,
-          #fff,
-          #000,
-          #000,
-          #000,
-          #000
+          var(--text-primary) 0%,
+          var(--text-primary) 40%,
+          var(--bg-primary) 50%,
+          var(--text-primary) 60%,
+          var(--text-primary) 100%
         );
         background-size: 200% auto;
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
         color: transparent;
-        animation: gradientFlow 5s linear infinite;
+        animation: gradientFlow 3s linear infinite;
+        /* GPU加速 */
+        will-change: background-position, text-shadow;
+        backface-visibility: hidden;
+      }
+      .cool-title h1 {
+        transition: none !important;
       }
       @keyframes gradientFlow {
         0% {
+          text-shadow: 0 0 0 rgba(0, 0, 0, 0);
           background-position: 0% center;
-          box-shadow: none;
+        }
+        25% {
+          text-shadow: var(--cool-title-shadow-sm);
         }
         50% {
-          text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.6);
+          text-shadow: var(--cool-title-shadow-lg);
+          background-position: 100% center;
+        }
+        75% {
+          text-shadow: var(--cool-title-shadow-sm);
         }
         100% {
+          text-shadow: 0 0 0 rgba(0, 0, 0, 0);
           background-position: 200% center;
         }
       }
@@ -56,16 +67,15 @@
         align-items: center;
         margin-bottom: 1rem;
         padding: 0.625rem 2rem;
-        border: 1px solid #eee;
+        border: 1px solid var(--border-color);
         /* border-radius: 0.625rem; */
-        background: #fff;
-        color: #333;
+        background: var(--bg-secondary);
+        color: var(--text-primary);
         text-decoration: none;
-        transition: all 0.3s ease;
+        transition: var(--transition);
       }
       .article-item:hover {
-        border-color: #ddd;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        box-shadow: var(--shadow-md);
         transform: translateY(-2px);
       }
       .article-title {
@@ -80,7 +90,7 @@
         padding: 0.625rem 0rem;
         font-weight: bold;
         font-size: 0.875rem;
-        color: #999;
+        color: var(--text-tertiary);
         white-space: nowrap;
         margin-left: 1rem;
       }
@@ -91,7 +101,7 @@
         height: 100px;
         font-size: 1.5rem;
         font-weight: bold;
-        color: #999;
+        color: var(--text-tertiary);
       }
       @media screen and (max-width: 768px) {
         .article-item {
@@ -151,27 +161,30 @@
     </div>
 
     <script>
-      const listContainer = document.querySelector(".article-list");
+      (function () {
+        const listContainer = document.querySelector(".article-list");
 
-      fetch("./articleList.json")
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.length > 0) {
-            const html = data
-              .map((item) => {
-                return `
+        fetch("./articleList.json")
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.length > 0) {
+              const html = data
+                .map((item) => {
+                  return `
         <a href="./pages/${item.filename}" class="article-item">
           <h2 class="article-title">${item.title}</h2>
           <div class="article-time">${item.time}</div>
         </a>
       `;
-              })
-              .join("");
+                })
+                .join("");
 
-            listContainer.innerHTML = html;
-          }
-        })
-        .catch((error) => console.error("加载文章列表失败:", error));
+              listContainer.innerHTML = html;
+            }
+          })
+          .catch((error) => console.error("加载文章列表失败:", error));
+      })();
     </script>
+    <script src="js/js.js"></script>
   </body>
 </html>
